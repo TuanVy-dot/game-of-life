@@ -32,21 +32,25 @@ void RenderGameOfLife(SDL_Renderer *rend, struct LIFE golife, SDL_Rect *rects,
 
 
 int main(int argc, const char *argv[]) {
+
+    /* CHANGE THOSE VALUES */
+    const uint32_t width = 800, height = 600;
+    const uint32_t cell_width = 5;
+    
     srand(time(NULL));
+
     SDL_InitSubSystem(SDL_INIT_VIDEO);
     SDL_Window *win;
     SDL_Renderer *rend;
-    const uint32_t width = 800, height = 600;
     win = SDL_CreateWindow("Game Of Life", SDL_WINDOWPOS_UNDEFINED_MASK,
             SDL_WINDOWPOS_UNDEFINED_MASK, width, height, SDL_WINDOW_SHOWN);
     rend = SDL_CreateRenderer(win, 0, SDL_RENDERER_ACCELERATED);
 
     /* Pre-rendering */
-    const uint32_t cell_width = 10;
     const uint32_t cells_x = width/cell_width;
     const uint32_t cells_y = height/cell_width;
     SDL_Rect cells[cells_x * cells_y]; // 1D array for simplicity
-    CreateRectangles(cells, 10, 10, 0, width, 0, height);
+    CreateRectangles(cells, cell_width, cell_width, 0, width, 0, height);
 
     struct LIFE golife;
     life_generate(&golife, cells_x, cells_y);
