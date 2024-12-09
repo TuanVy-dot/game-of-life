@@ -1,0 +1,1 @@
+/data/data/com.termux/files/usr/bin/cc -O2 -g -DNDEBUG -Xlinker --dependency-file=CMakeFiles/life.dir/link.d CMakeFiles/life.dir/src/main.c.o CMakeFiles/life.dir/src/life/life_alg.c.o CMakeFiles/life.dir/src/life/life_gen.c.o CMakeFiles/life.dir/src/life/life_utils.c.o -o life  -lSDL2
